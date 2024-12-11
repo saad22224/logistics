@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logistics Services</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        overflow-x: hidden !important;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        overflow-x: hidden !important;
+      }
+      .navbar {
+        position: fixed; /* يجعل الشريط ثابتًا */
+        top: 0; /* تحديد الموضع أعلى الصفحة */
+        left: 0;
+        width: 100%; /* يغطي العرض الكامل */
+        z-index: 1030; /* فوق بقية العناصر */
+        background: linear-gradient(45deg, #2c3e50, #34495e); /* لون متدرج */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+        overflow-x: hidden !important;
+      }
+
+      body {
+        padding-top: 70px; /* إضافة مساحة كافية لتجنب تداخل المحتوى مع الشريط */
+        overflow-x: hidden !important;
+      }
+
+      .navbar-logo {
+        max-height: 60px; /* تحديد ارتفاع مناسب للصورة */
+        border-radius: 5px; /* زوايا خفيفة */
+        object-fit: contain; /* الحفاظ على النسب الصحيحة */
+        padding: 5px; /* مسافة حول الصورة */
+      }
+
+      .navbar-nav .nav-link {
+        color: #f5f5f5; /* لون النص */
+        font-weight: bold;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #1abc9c; /* تغيير اللون عند التمرير */
+      }
+      /* For desktop screens */
+      #about .container {
+        display: flex;
+        flex-wrap: wrap;
+        overflow-x: hidden !important;
+      }
+
+      #about .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      #about .col-lg-6 {
+        flex: 1;
+        padding: 15px;
+      }
+
+      #about img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* For mobile screens */
+      @media (max-width: 767px) {
+        #about .row {
+          flex-direction: column;
+        }
+
+        #about .col-lg-6 {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        #about img {
+          margin-top: 20px;
+        }
+      }
+
+      .section {
+        padding: 50px 15px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow-x: hidden !important;
+      }
+      .card {
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+      footer {
+        background: #ffffff;
+        color: #ffffff;
+        padding: 15px 0;
+        text-align: center;
+      }
+      /* From Uiverse.io by javierBarroso */
+      .parent {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .child {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform-style: preserve-3d;
+        transition: all 0.3s cubic-bezier(0.68, 0.85, 0.265, 1.85);
+        border-radius: 5px;
+        margin: 0 5px;
+        box-shadow: inset 1px 1px 2px #fff, 0 0 5px #4442;
+      }
+
+      .child:hover {
+        background-color: white;
+        background-position: -100px 100px, -100px 100px;
+        /*transform: rotate3d(0.5, 1, 0, 30deg);*/
+        transform: perspective(180px) rotateX(60deg) translateY(2px);
+      }
+
+      .child-1:hover {
+        box-shadow: 0px 10px 10px #1e90ff;
+      }
+      .child-2:hover {
+        box-shadow: 0px 10px 10px #ff00ff;
+      }
+      .child-3:hover {
+        box-shadow: 0px 10px 10px #000;
+      }
+      .child-4:hover {
+        box-shadow: 0px 10px 10px #4267b2;
+      }
+
+      .button {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: transparent;
+        font-size: 20px;
+        transition-duration: 0.5s;
+        transition-timing-function: cubic-bezier(0.68, -0.85, 0.265, 1.55);
+      }
+
+      .child:hover > .button {
+        transform: translate3d(0px, 20px, 30px) perspective(80px)
+          rotateX(-60deg) translateY(2px) translateZ(10px);
+      }
+      .scroll-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #34495e; /* لون الخلفية */
+        color: #fff; /* لون السهم */
+        border-radius: 50%; /* لجعل الدائرة مستديرة */
+        width: 50px;
+        height: 50px;
+        display: flex; /* استخدام Flexbox */
+        align-items: center !important; /* محاذاة رأسية */
+        justify-content: center !important; /* محاذاة أفقية */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* ظل خفيف */
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .scroll-to-top:hover {
+        background-color: #5a54d1; /* تغيير اللون عند التمرير */
+        transform: scale(1.1); /* تكبير بسيط */
+      }
+
+      .scroll-to-top i {
+        font-size: 24px; /* حجم السهم */
+        position: absolute;
+        left: 23%;
+        top: 15%;
+      }
+      @media (max-width: 767px) {
+        .scroll-to-top {
+          width: 30px;
+          height: 30px;
+        }
+        .scroll-to-top i {
+          font-size: 15px;
+        }
+      }
+      .service-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .service-header h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #007bff;
+      }
+      .service-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #6c757d;
+      }
+      .service-list {
+        margin-top: 40px;
+      }
+      .service-item {
+        margin-bottom: 30px;
+      }
+      .service-item h3 {
+        font-size: 1.8rem;
+        color: #34495e;
+      }
+      .service-item p {
+        font-size: 1rem;
+        color: #495057;
+      }
+      .btn-primary {
+        background-color: #28a745;
+        border: none;
+      }
+      .btn-primary:hover {
+        background-color: #218838;
+      }
+      .contact-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .contact-header h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #007bff;
+      }
+      .contact-info {
+        font-size: 1rem;
+        color: #495057;
+        margin-bottom: 30px;
+      }
+      .contact-address {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #6c757d;
+      }
+      .contact-item {
+        margin-bottom: 20px;
+      }
+      .contact-item h4 {
+        font-size: 1.25rem;
+        color: #28a745;
+      }
+      .contact-item p {
+        font-size: 1rem;
+        color: #495057;
+      }
+      .client-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .client-header h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #007bff;
+      }
+      .client-description {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #6c757d;
+        margin-bottom: 40px;
+      }
+      @media (max-width: 767px) {
+        .client-description,
+        .service-description,
+        .service-list {
+          text-align: center;
+        }
+      }
+      .client-logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 40px;
+      }
+      .client-logo {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+      .client-logo:hover {
+        transform: scale(1.1);
+      }
+      .client-item {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="assets/صورة واتساب بتاريخ 1446-06-10 في 10.59.51_b6b5835e.jpg"
+            class="navbar-logo"
+            alt="Logo"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#team">Our Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#clients">Clients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- About Us Section -->
+    <section id="about" class="section text-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-1 hero__text">
+            <h2>About Us</h2>
+            <p>
+              At LINKSHIP, we are pioneers in the logistics, shipping, and IT
+              sectors, dedicated to delivering innovative solutions that
+              streamline supply chain processes for businesses around the globe.
+              Founded on the principles of integrity, efficiency, and
+              customer-centricity, we have built a reputation as a trusted
+              partner in navigating the complexities of modern logistics. Our
+              team of experienced professionals is committed to understanding
+              the unique needs of each client, ensuring customized strategies
+              that enhance operational efficiency and minimize costs. With a
+              robust network of logistical partners and cutting-edge technology
+              at our fingertips, we provide comprehensive shipping solutions
+              that cover everything from freight management to last-mile
+              delivery. Our investment in state-of-the-art IT systems enables
+              real-time tracking, data analytics, and seamless communication,
+              empowering our clients to make informed decisions and respond
+              swiftly to market demands. We understand that in today’s
+              fast-paced world, timely and transparent logistics are critical,
+              and we strive to exceed expectations at every level. At LINKSHIP,
+              we are not just service providers; we are collaborators focused on
+              driving your success. Our mission is to create value through
+              innovation, ensuring that we not only meet but exceed the evolving
+              needs of our clients. With a passion for excellence and a
+              forward-thinking approach, we are committed to contributing
+              positively to the global logistics landscape while fostering
+              sustainable practices that benefit both businesses and the
+              environment. Join us on this journey, and let us take your
+              logistics and shipping operations to new heights.
+            </p>
+          </div>
+          <div class="col-lg-6 order-lg-2 hero__img">
+            <img
+              style="width: 600px"
+              src="assets/تنزيل (18).jpg"
+              alt="Logistics Company"
+              class="img-fluid my-4"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- our team  Section -->
+    <section id="team" class="section text-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-lg-1 team__text">
+            <h2>Our Team</h2>
+            <p>
+              At our LINKSHIP, we take immense pride in our management team,
+              which embodies a perfect blend of expertise, innovation, and
+              strategic vision. Each member brings a wealth of experience from
+              diverse sectors, ensuring that our operations run seamlessly
+              across all dimensions of the business. Our logistics specialists
+              excel in optimizing supply chain processes, leveraging
+              cutting-edge technology to enhance efficiency and reduce costs.
+              Meanwhile, our shipping experts are dedicated to navigating the
+              complexities of global transportation, ensuring timely and secure
+              delivery of goods. In an era driven by rapid technological
+              advancement, our IT leaders are at the forefront of integrating
+              innovative solutions that enhance our operational capabilities.
+              They are dedicated to harnessing data analytics and artificial
+              intelligence to streamline workflows and improve decision-making.
+              This forward-thinking approach not only fortifies our competitive
+              edge but also positions us as a leader in the industry.
+              Collaboration is a cornerstone of our management philosophy; we
+              foster an environment where ideas are freely exchanged, and
+              teamwork is paramount. Moreover, our management team is committed
+              to sustainability and ethical practices within the logistics and
+              shipping sectors. We are continuously exploring ways to minimize
+              our carbon footprint and enhance our community engagement,
+              aligning our business objectives with responsible practices. Our
+              collective goal is to provide unparalleled service to our clients,
+              ensuring their needs are met with precision and care. By combining
+              our strengths across logistics, shipping, and IT, we are not just
+              managing operations; we are driving forward a vision of excellence
+              that sets the standard for the industry.
+            </p>
+          </div>
+          <div class="col-lg-6 order-lg-2 team__img">
+            <img
+              style="width: 600px; height: 300px"
+              src="assets/تنزيل (19).jpg"
+              alt="Logistics Company"
+              class="img-fluid my-4"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- services -->
+    <div class="container my-5" id="services">
+      <div class="service-header">
+        <h2>Our Main Services</h2>
+      </div>
+
+      <div class="service-description">
+        <p>
+          In today's fast-paced global market, logistics and shipping companies
+          play a crucial role in ensuring that goods move efficiently from
+          suppliers to consumers. A comprehensive suite of services is essential
+          for these companies to optimize their operations and meet the diverse
+          needs of their clients. From freight forwarding and warehousing to
+          customs brokerage and real-time tracking, logistics providers must
+          offer a robust portfolio of services that guarantees timely and
+          cost-effective delivery. Additionally, the integration of innovative
+          technologies is pivotal in enhancing operational efficiency, enabling
+          companies to manage complex supply chains with ease.
+        </p>
+        <p>
+          Moreover, as e-commerce continues to soar, the demand for reliable
+          shipping solutions has never been greater. Logistics firms are now
+          tasked with developing adaptive strategies that can accommodate the
+          fluctuations in order volume and delivery timelines. Services such as
+          last-mile delivery, reverse logistics, and same-day shipping have
+          become increasingly important, as customers seek rapid fulfillment of
+          their online orders. By offering tailored shipping options, logistics
+          companies can enhance customer satisfaction and loyalty, ultimately
+          contributing to the bottom line.
+        </p>
+        <p>
+          On the IT front, logistics and shipping companies must leverage
+          advanced technologies to streamline their operations and improve
+          service delivery. Innovations such as artificial intelligence, machine
+          learning, and blockchain play a transformative role in enhancing
+          visibility and traceability across the supply chain. These
+          technologies enable companies to analyze vast amounts of data, predict
+          demand patterns, and make informed decisions that drive efficiency.
+          Furthermore, investing in user-friendly digital platforms can enhance
+          customer engagement, offering clients real-time updates on their
+          shipments and allowing them to manage their logistics needs with ease.
+        </p>
+        <p>
+          In summary, a logistics and shipping company that prioritizes
+          comprehensive service offerings, embraces technological advancements,
+          and adapts to the evolving needs of the market will be well-positioned
+          for success. By providing efficient, reliable, and innovative
+          solutions, these companies can not only meet the demands of their
+          clients but also set themselves apart in an increasingly competitive
+          landscape.
+        </p>
+      </div>
+
+      <div class="row service-list">
+        <div class="col-md-6 service-item">
+          <h3>Freight Forwarding</h3>
+          <p>
+            Efficient and reliable freight forwarding services ensuring smooth
+            transportation of goods across global destinations.
+          </p>
+        </div>
+        <div class="col-md-6 service-item">
+          <h3>Warehousing Services</h3>
+          <p>
+            Comprehensive storage solutions to safeguard goods with optimal
+            management and inventory control systems.
+          </p>
+        </div>
+        <div class="col-md-6 service-item">
+          <h3>Integration of IT Services</h3>
+          <p>
+            Seamless integration of advanced IT systems to enhance operational
+            efficiency and customer engagement.
+          </p>
+        </div>
+        <div class="col-md-6 service-item">
+          <h3>Customs Clearance</h3>
+          <p>
+            Streamlined customs processes for hassle-free clearance, ensuring
+            timely delivery and compliance with regulations.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- client -->
+    <div class="container my-5 section" id="clients">
+      <!-- Section Title -->
+      <div class="client-header">
+        <h2>Our Clients</h2>
+      </div>
+
+      <!-- Section Description -->
+      <div class="client-description">
+        <p>
+          At LINKSHIP, our clients represent a diverse array of industries and
+          business sizes, each with unique needs and challenges. From small
+          e-commerce startups that require seamless warehousing and fast,
+          reliable shipping solutions to multinational corporations seeking
+          efficient supply chain management, we cater to a variety of sectors.
+          Our clients include retail businesses that depend on timely delivery
+          to maintain customer satisfaction, manufacturers that need to
+          streamline their distribution processes, and tech firms that rely on
+          advanced IT solutions to enhance operational efficiency.
+        </p>
+        <p>
+          We pride ourselves on building strong, collaborative relationships
+          with our clients, understanding their specific requirements to provide
+          tailored solutions that drive growth and success. Our logistics and
+          shipping services are designed not only to meet but to exceed
+          expectations, ensuring that products reach their destinations safely
+          and on time. Meanwhile, our IT services empower clients with
+          cutting-edge technologies that optimize their operations and provide
+          valuable insights through data analytics.
+        </p>
+        <p>
+          As trusted partners in their business journeys, we are committed to
+          ongoing communication and support, helping our clients navigate the
+          complexities of logistics and technology in today’s fast-paced market.
+          By continuously investing in innovation and sustainability, we equip
+          our clients with the tools they need to adapt to changing market
+          dynamics and thrive in an increasingly competitive landscape.
+          Together, we are not just delivering goods and services; we are
+          forging pathways for success that propel our clients forward.
+        </p>
+      </div>
+
+      <!-- Client Logos -->
+      <div class="client-logos">
+        <div class="client-item">
+          <img
+            src="assets/صورة واتساب بتاريخ 1446-06-10 في 12.49.27_39bcba2a.jpg"
+            alt="Client 1"
+            class="client-logo"
+          />
+        </div>
+        <div class="client-item">
+          <img
+            src="assets/صورة واتساب بتاريخ 1446-06-10 في 11.39.08_529a3271.jpg"
+            alt="Client 2"
+            class="client-logo"
+          />
+        </div>
+        <div class="client-item">
+          <img
+            src="assets/صورة واتساب بتاريخ 1446-06-10 في 11.39.09_14f0f88b.jpg"
+            alt="Client 3"
+            class="client-logo"
+          />
+        </div>
+        <div class="client-item">
+          <img
+            src="assets/صورة واتساب بتاريخ 1446-06-10 في 11.39.09_c8f352da.jpg"
+            alt="Client 4"
+            class="client-logo"
+          />
+        </div>
+        <div class="client-item">
+          <img
+            src="assets/صورة واتساب بتاريخ 1446-06-10 في 11.39.09_db5383f4.jpg"
+            alt="Client 5"
+            class="client-logo"
+          />
+        </div>
+        <div class="client-item">
+          <img
+            src="assets/صورة واتساب بتاريخ 1446-06-10 في 11.39.10_646040f8.jpg"
+            alt="Client 6"
+            class="client-logo"
+          />
+        </div>
+        <div class="client-item">
+          <img
+            src="assets/صورة واتساب بتاريخ 1446-06-10 في 11.39.10_e152c264.jpg"
+            alt="Client 6"
+            class="client-logo"
+          />
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="contact-header" id="contact_head">
+        <h2>Contact Us</h2>
+      </div>
+
+      <div class="row" id="contact">
+        <div class="col-md-6 contact-item">
+          <h4>Email</h4>
+          <p>
+            <strong>General Inquiries:</strong>
+            <a href="mailto:info@linkship.me">info@linkship.me</a>
+          </p>
+          <p>
+            <strong>Join Our Team:</strong>
+            <a href="mailto:hr@linkship.me">hr@linkship.me</a>
+          </p>
+        </div>
+        <div class="col-md-6 contact-item">
+          <h4>Office Locations</h4>
+          <div class="contact-address">
+            <h5>UAE</h5>
+            <p>
+              Marina Plaza - Al Marsa Street Marina Plaza, Level 27–29 & 32 -
+              Dubai - United Arab Emirates
+            </p>
+          </div>
+          <div class="contact-address">
+            <h5>Saudi Arabia</h5>
+            <p>4554 Anas Bin Malik, 3rd Floor, Riyadh 13524</p>
+          </div>
+        </div>
+      </div>
+      /* From Uiverse.io by javierBarroso */
+      <div class="parent" id="contact">
+        <div class="child child-1">
+          <button class="button btn-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 512 512"
+              fill="#1e90ff"
+            >
+              <path
+                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="child child-2">
+          <button class="button btn-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              fill="#ff00ff"
+            >
+              <path
+                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="child child-3">
+          <button class="button btn-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 496 512"
+            >
+              <path
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="child child-4">
+          <button class="button btn-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 320 512"
+              fill="#4267B2"
+            >
+              <path
+                d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy;</p>
+      </footer>
+    </footer>
+    <!--~~~~~~~~~~~~~~~ Scroll Up ~~~~~~~~~~~~~~~-->
+    <div class="scroll-to-top kolo" style="display: none">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+
+    <script>
+      const scrollbtn = document.querySelector(".kolo");
+      window.addEventListener("scroll", () => {
+        if (scrollY >= 1000) {
+          scrollbtn.style.display = "block";
+        } else {
+          scrollbtn.style.display = "none";
+        }
+      });
+
+      scrollbtn.onclick = function () {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scrollreveal.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
