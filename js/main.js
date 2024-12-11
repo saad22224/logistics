@@ -14,4 +14,5 @@ const sr = ScrollReveal({
   sr.reveal("#services" ,  { origin: "top" });
   sr.reveal("#clients" ,  { origin: "left" });
   sr.reveal("#contact" ,  { origin: "bottom" });
+  sr.reveal(".copy" ,  { origin: "top" });
   sr.reveal("#contact_head" ,  { origin: "top" });
